@@ -1,0 +1,944 @@
+{
+  "schema": "anticloud.tier-bench/1",
+  "project": "OPENPILOT",
+  "source": {
+    "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\ANTICLOUD_REPOS\\AUTOMOTIVE\\OPENPILOT\\UPSTREAM_CLONE",
+    "git": {
+      "head": "",
+      "url": "https://github.com/",
+      "branch": "master",
+      "committed_at": "2026-09-29T11:06:59+04:00"
+    }
+  },
+  "metrics": {
+    "files_total": 1192,
+    "source_files_scanned": 728,
+    "lines_of_code": 121123,
+    "languages": {
+      ".py": 505,
+      ".png": 192,
+      ".cc": 119,
+      ".h": 119,
+      "(none)": 41,
+      ".sh": 40,
+      ".md": 40,
+      ".svg": 26,
+      ".json": 24,
+      ".xml": 14,
+      ".po": 12,
+      ".ttf": 12,
+      ".wav": 9,
+      ".ipynb": 6,
+      ".otf": 5
+    }
+  },
+  "licence": {
+    "spdx": "MIT",
+    "class": "A",
+    "source_file": "LICENSE",
+    "redistribution_allowed": true
+  },
+  "dependencies": {
+    "count": 14,
+    "unique": 14,
+    "by_ecosystem": {
+      "pypi": 14
+    },
+    "list": [
+      {
+        "ecosystem": "pypi",
+        "name": "sounddevice",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "sounddevice"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "requests",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "requests"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "tqdm",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "tqdm"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "scons",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "scons"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "pycapnp",
+        "version": "==2.1.0",
+        "source_file": "pyproject.toml",
+        "raw": "pycapnp==2.1.0"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "numpy",
+        "version": ">=2.0",
+        "source_file": "pyproject.toml",
+        "raw": "numpy >=2.0"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "comma-deps-capnproto",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "comma-deps-capnproto"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "comma-deps-acados",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "comma-deps-acados"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "comma-deps-ffmpeg",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "comma-deps-ffmpeg"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "comma-deps-zstd",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "comma-deps-zstd"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "comma-deps-zeromq",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "comma-deps-zeromq"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "comma-deps-json11",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "comma-deps-json11"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "comma-deps-git-lfs",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "comma-deps-git-lfs"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "comma-deps-gcc-arm-none-eabi",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "comma-deps-gcc-arm-none-eabi"
+      }
+    ]
+  },
+  "owasp_top10": {
+    "total_findings": 191,
+    "files_with_findings": 173,
+    "severity": {
+      "high": 32,
+      "medium": 10,
+      "low": 149
+    },
+    "categories": {
+      "A01-BrokenAccessControl": {
+        "count": 0,
+        "findings": []
+      },
+      "A02-CryptographicFailures": {
+        "count": 4,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "openpilot/tools/lib/url_file.py",
+            "line": 24,
+            "cwe": "CWE-327",
+            "snippet": "return md5(link.split(\"?\", maxsplit=1)[0].encode('utf-8')).hexdigest()"
+          },
+          {
+            "severity": "medium",
+            "file": "openpilot/system/loggerd/logger.cc",
+            "line": 110,
+            "cwe": "CWE-338",
+            "snippet": "std::mt19937 mt(rd());"
+          },
+          {
+            "severity": "medium",
+            "file": "openpilot/system/athena/athenad.py",
+            "line": 660,
+            "cwe": "CWE-327",
+            "snippet": "upload_id = hashlib.sha1(str(item).encode()).hexdigest()"
+          },
+          {
+            "severity": "medium",
+            "file": "openpilot/common/util.cc",
+            "line": 240,
+            "cwe": "CWE-338",
+            "snippet": "std::mt19937 rng(dev());"
+          }
+        ]
+      },
+      "A03-Injection": {
+        "count": 31,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "launch_chffrplus.sh",
+            "line": 72,
+            "cwe": "CWE-78",
+            "snippet": "ln -sfn \"$(pwd)\" /data/pythonpath"
+          },
+          {
+            "severity": "high",
+            "file": "tools/op.sh",
+            "line": 19,
+            "cwe": "CWE-78",
+            "snippet": "if [ \"$(uname)\" == \"Darwin\" ] && [ \"$SHELL\" == \"/bin/bash\" ]; then"
+          },
+          {
+            "severity": "high",
+            "file": "tools/setup.sh",
+            "line": 11,
+            "cwe": "CWE-78",
+            "snippet": "OPENPILOT_ROOT=\"$(pwd)/openpilot\""
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/tools/replay/util.cc",
+            "line": 21,
+            "cwe": "CWE-120",
+            "snippet": "int ret = vasprintf(&msg_buf, fmt, args);"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/tools/plotjuggler/juggle.py",
+            "line": 101,
+            "cwe": "CWE-78",
+            "snippet": "subprocess.call(cmd, shell=True, env=env, cwd=juggle_dir)"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/tools/plotjuggler/test_plotjuggler.py",
+            "line": 25,
+            "cwe": "CWE-78",
+            "snippet": "stderr=subprocess.PIPE, shell=True, start_new_session=True) as p:"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/tools/jotpluggler/math_eval.py",
+            "line": 44,
+            "cwe": "CWE-95",
+            "snippet": "return eval(expr, env, env)"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/tools/jotpluggler/util.cc",
+            "line": 45,
+            "cwe": "CWE-78",
+            "snippet": "FILE *pipe = popen(command.c_str(), \"r\");"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/tools/cabana/utils/util.cc",
+            "line": 271,
+            "cwe": "CWE-78",
+            "snippet": "FILE *f = ::popen(cmd, \"r\");"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/system/timed.py",
+            "line": 22,
+            "cwe": "CWE-78",
+            "snippet": "subprocess.run(f\"TZ=UTC date -s '{new_time}'\", shell=True, check=True)"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/system/tombstoned.py",
+            "line": 41,
+            "cwe": "CWE-78",
+            "snippet": "return subprocess.check_output(cmd, shell=True, encoding='utf8', timeout=30, executable='/bin/bash')"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/system/ui/mici_reset.py",
+            "line": 108,
+            "cwe": "CWE-78",
+            "snippet": "rm = subprocess.run(\"sudo rm -rf /data/*\", shell=True).returncode"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/system/ui/tici_reset.py",
+            "line": 45,
+            "cwe": "CWE-78",
+            "snippet": "subprocess.run(\"sudo reboot\", shell=True)"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/system/ui/lib/application.py",
+            "line": 774,
+            "cwe": "CWE-120",
+            "snippet": "int vasprintf(char **strp, const char *fmt, void *ap);"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/system/sensord/tests/test_sensord.py",
+            "line": 68,
+            "cwe": "CWE-78",
+            "snippet": "subprocess.run(\"pkill -f \\\\\\\\./sensord\", shell=True)"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/system/loggerd/tests/test_encoder.py",
+            "line": 93,
+            "cwe": "CWE-78",
+            "snippet": "probe = subprocess.check_output(cmd, shell=True, encoding='utf8').split('\\n')[0].strip().split(',')"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/system/loggerd/tests/test_loggerd.py",
+            "line": 337,
+            "cwe": "CWE-78",
+            "snippet": "has_audio_stream = subprocess.run(ffprobe_cmd, shell=True, capture_output=True).stdout.strip() != b''"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/system/camerad/cameras/spectra.cc",
+            "line": 951,
+            "cwe": "CWE-120",
+            "snippet": "strcpy(sync_create.name, \"NodeOutputPortFence\");"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/selfdrive/ui/mici/layouts/settings/software.py",
+            "line": 93,
+            "cwe": "CWE-78",
+            "snippet": "subprocess.run(f\"pkill -{sig} -f {self.UPDATER_PROC}\", shell=True)"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/selfdrive/ui/layouts/settings/software.py",
+            "line": 161,
+            "cwe": "CWE-78",
+            "snippet": "subprocess.run(\"pkill -SIGUSR1 -f openpilot.system.updated.updated\", shell=True)"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/selfdrive/ui/installer/installer.cc",
+            "line": 163,
+            "cwe": "CWE-78",
+            "snippet": "FILE *pipe = popen(cmd.c_str(), \"r\");"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/selfdrive/test/process_replay/model_replay.py",
+            "line": 215,
+            "cwe": "CWE-502",
+            "snippet": "return pickle.load(open(cache_name, \"rb\"))"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/selfdrive/modeld/dmonitoringmodeld.py",
+            "line": 33,
+            "cwe": "CWE-502",
+            "snippet": "self.output_slices = pickle.loads(base64.b64decode(jits['metadata']['metadata']['output_slices']))"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/selfdrive/modeld/modeld.py",
+            "line": 150,
+            "cwe": "CWE-502",
+            "snippet": "self.output_slices = pickle.loads(base64.b64decode(jits['metadata']['metadata']['output_slices']))"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/common/swaglog.cc",
+            "line": 118,
+            "cwe": "CWE-120",
+            "snippet": "int ret = vasprintf(&msg_buf, fmt, args);"
+          }
+        ]
+      },
+      "A04-InsecureDesign": {
+        "count": 140,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "launch_chffrplus.sh",
+            "line": 8,
+            "cwe": "CWE-",
+            "snippet": "# TODO: move this to agnos"
+          },
+          {
+            "severity": "low",
+            "file": "tools/setup_dependencies.sh",
+            "line": 115,
+            "cwe": "CWE-",
+            "snippet": "# TODO: outer retry can be removed once https://github.com/axodotdev/cargo-dist/pull/2311 is merged"
+          },
+          {
+            "severity": "low",
+            "file": "tools/scripts/debug_fw_fingerprinting_offline.py",
+            "line": 10,
+            "cwe": "CWE-",
+            "snippet": "TODO:"
+          },
+          {
+            "severity": "low",
+            "file": "tools/scripts/fingerprint_from_route.py",
+            "line": 8,
+            "cwe": "CWE-",
+            "snippet": "# TODO: make this a nice tool for car ports. should also work with qlogs for FW"
+          },
+          {
+            "severity": "low",
+            "file": "tools/scripts/car/max_lat_accel.py",
+            "line": 69,
+            "cwe": "CWE-",
+            "snippet": "# TODO: record max lat accel at the end of the event, need to use the past lat accel as overriding can happen before we detect it"
+          },
+          {
+            "severity": "low",
+            "file": "tools/scripts/car/vw_mqb_config.py",
+            "line": 13,
+            "cwe": "CWE-",
+            "snippet": "# TODO: extend UDS library to allow custom/vendor-defined data identifiers without ignoring type checks"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/lint/check_indentation.py",
+            "line": 6,
+            "cwe": "CWE-",
+            "snippet": "# TODO: remove this once https://github.com/astral-sh/ruff/issues/8705 is closed"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/sim/launch_openpilot.sh",
+            "line": 11,
+            "cwe": "CWE-",
+            "snippet": "# TODO: offscreen UI should work"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/sim/tests/test_sim_bridge.py",
+            "line": 24,
+            "cwe": "CWE-",
+            "snippet": "@unittest.skip(\"TODO: re-enable simulator bridge test\")"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/sim/lib/common.py",
+            "line": 20,
+            "cwe": "CWE-",
+            "snippet": "\"\"\"Simulates a lat/lon from an xy coordinate on a plane, for simple simulation. TODO: proper global projection?\"\"\""
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/sim/lib/simulated_sensors.py",
+            "line": 26,
+            "cwe": "CWE-",
+            "snippet": "dat.accelerometer.timestamp = dat.logMonoTime  # TODO: use the IMU timestamp"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/replay/ui.py",
+            "line": 177,
+            "cwe": "CWE-",
+            "snippet": "# TODO gas is deprecated"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/plotjuggler/test_plotjuggler.py",
+            "line": 39,
+            "cwe": "CWE-",
+            "snippet": "# TODO: also test that layouts successfully load"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/longitudinal_maneuvers/generate_report.py",
+            "line": 99,
+            "cwe": "CWE-",
+            "snippet": "# TODO localizer accel"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/lib/api.py",
+            "line": 6,
+            "cwe": "CWE-",
+            "snippet": "# TODO: this should be merged into common.api"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/lib/bootlog.py",
+            "line": 47,
+            "cwe": "CWE-",
+            "snippet": "# TODO: implement an API endpoint for this"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/lib/comma_car_segments.py",
+            "line": 17,
+            "cwe": "CWE-",
+            "snippet": "# TODO: remove this when commaCarSegments is updated to remove selector"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/lib/logreader.py",
+            "line": 149,
+            "cwe": "CWE-",
+            "snippet": "# TODO this should apply to camera files as well"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/lib/log_time_series.py",
+            "line": 23,
+            "cwe": "CWE-",
+            "snippet": "# TODO: support these"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/lib/route.py",
+            "line": 66,
+            "cwe": "CWE-",
+            "snippet": "# TODO: refactor this, it's super repetitive"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/lib/vidindex.py",
+            "line": 220,
+            "cwe": "CWE-",
+            "snippet": "# TODO: parse dependent_slice_segment_flag and slice_segment_address and get real slice_type"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/lib/tests/test_caching.py",
+            "line": 41,
+            "cwe": "CWE-",
+            "snippet": "# TODO: parameterize the defaults so we don't rely on hard-coded values in xx"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/joystick/joystick_control.py",
+            "line": 46,
+            "cwe": "CWE-",
+            "snippet": "# TODO: find a way to get this from API or detect gamepad/PC, perhaps \"inputs\" doesn't support it"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/jotpluggler/layout.cc",
+            "line": 273,
+            "cwe": "CWE-",
+            "snippet": "return \"VERSION \\\"\\\"\\n\\nNS_ :\\nBS_:\\nBU_: XXX\\n\";"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/cabana/settings.cc",
+            "line": 104,
+            "cwe": "CWE-",
+            "snippet": "std::string temporary_path = path.string() + \".tmp.XXXXXX\";"
+          }
+        ]
+      },
+      "A05-SecurityMisconfiguration": {
+        "count": 5,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "openpilot/system/updated/updated.py",
+            "line": 281,
+            "cwe": "CWE-1188",
+            "snippet": "last_uptime_onroad = self.params.get(\"UptimeOnroad\", return_default=True)"
+          },
+          {
+            "severity": "medium",
+            "file": "openpilot/system/hardware/hardwared.py",
+            "line": 239,
+            "cwe": "CWE-1188",
+            "snippet": "uptime_offroad: float = params.get(\"UptimeOffroad\", return_default=True)"
+          },
+          {
+            "severity": "medium",
+            "file": "openpilot/selfdrive/ui/layouts/settings/toggles.py",
+            "line": 101,
+            "cwe": "CWE-1188",
+            "snippet": "selected_index=self._params.get(\"LongitudinalPersonality\", return_default=True),"
+          },
+          {
+            "severity": "medium",
+            "file": "openpilot/selfdrive/selfdrived/selfdrived.py",
+            "line": 129,
+            "cwe": "CWE-1188",
+            "snippet": "self.personality = self.params.get(\"LongitudinalPersonality\", return_default=True)"
+          },
+          {
+            "severity": "medium",
+            "file": "openpilot/common/tests/test_params.py",
+            "line": 124,
+            "cwe": "CWE-1188",
+            "snippet": "assert isinstance(self.params.get(\"LanguageSetting\", return_default=True), str)"
+          }
+        ]
+      },
+      "A06-VulnerableComponents": {
+        "count": 0,
+        "findings": []
+      },
+      "A07-AuthFailures": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "openpilot/system/ui/lib/wifi_manager.py",
+            "line": 38,
+            "cwe": "CWE-798",
+            "snippet": "DEFAULT_TETHERING_PASSWORD = \"swagswagcomma\""
+          }
+        ]
+      },
+      "A08-SoftwareDataIntegrity": {
+        "count": 8,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "openpilot/tools/lib/filereader.py",
+            "line": 11,
+            "cwe": "CWE-319",
+            "snippet": "DATA_ENDPOINT = os.getenv(\"DATA_ENDPOINT\", \"http://data-raw.comma.internal/\")"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/lib/tests/test_caching.py",
+            "line": 36,
+            "cwe": "CWE-319",
+            "snippet": "yield f\"http://{host}:{port}\""
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/system/webrtc/helpers.py",
+            "line": 20,
+            "cwe": "CWE-319",
+            "snippet": "resp = requests.post(f\"http://localhost:{WEBRTCD_PORT}/stream\", json=asdict(body), timeout=10)"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/system/ubloxd/glonass.py",
+            "line": 3,
+            "cwe": "CWE-319",
+            "snippet": "http://gauss.gge.unb.ca/GLONASS.ICD.pdf"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/system/loggerd/tests/loggerd_tests_common.py",
+            "line": 42,
+            "cwe": "CWE-319",
+            "snippet": "return MockResponse('{\"url\": \"http://localhost/does/not/exist\", \"headers\": {}}', 200)"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/system/athena/tests/test_athenad.py",
+            "line": 33,
+            "cwe": "CWE-319",
+            "snippet": "UPLOAD_SESS.put(f'http://{host}:{port}/qlog.zst', data='', timeout=10)"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/selfdrive/test/helpers.py",
+            "line": 142,
+            "cwe": "CWE-319",
+            "snippet": "return func(*args, f\"http://{host}:{port}\", **kwargs)"
+          },
+          {
+            "severity": "low",
+            "file": "docs/serve.py",
+            "line": 529,
+            "cwe": "CWE-319",
+            "snippet": "print(f\"docs: serving on http://localhost:{httpd.server_port}/ (watching for changes)\")"
+          }
+        ]
+      },
+      "A09-LoggingMonitoringFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A10-SSRF": {
+        "count": 2,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "scripts/ci_results.py",
+            "line": 99,
+            "cwe": "CWE-918",
+            "snippet": "with urllib.request.urlopen(url, timeout=30) as resp:"
+          },
+          {
+            "severity": "low",
+            "file": "docs/serve.py",
+            "line": 435,
+            "cwe": "CWE-601",
+            "snippet": "def write_html_redirect(rel: Path) -> None:"
+          }
+        ]
+      }
+    }
+  },
+  "owasp_llm_top10": {
+    "total_findings": 8,
+    "files_with_findings": 8,
+    "severity": {
+      "high": 5,
+      "medium": 1,
+      "low": 2
+    },
+    "categories": {
+      "LLM01-PromptInjection": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "openpilot/selfdrive/car/docs.py",
+            "line": 55,
+            "cwe": "CWE-1336",
+            "snippet": "template = Template(f.read())"
+          }
+        ]
+      },
+      "LLM02-SensitiveInfoDisclosure": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM03-SupplyChain": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM04-DataPoisoning": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM05-ImproperOutputHandling": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM06-ExcessiveAgency": {
+        "count": 5,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "openpilot/system/ui/mici_reset.py",
+            "line": 73,
+            "cwe": "CWE-862",
+            "snippet": "self._start_reset, exit_on_confirm=False, red=True)"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/system/ui/mici_setup.py",
+            "line": 246,
+            "cwe": "CWE-862",
+            "snippet": "HARDWARE.reboot, exit_on_confirm=False),"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/selfdrive/ui/mici/layouts/onboarding.py",
+            "line": 228,
+            "cwe": "CWE-862",
+            "snippet": "on_accept, exit_on_confirm=False)"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/selfdrive/ui/mici/layouts/settings/software.py",
+            "line": 256,
+            "cwe": "CWE-862",
+            "snippet": "uninstall_openpilot_callback, exit_on_confirm=False,"
+          },
+          {
+            "severity": "high",
+            "file": "openpilot/selfdrive/ui/mici/layouts/settings/device/device_layout.py",
+            "line": 174,
+            "cwe": "CWE-862",
+            "snippet": "reboot_callback, exit_on_confirm=False)"
+          }
+        ]
+      },
+      "LLM07-SystemPromptLeak": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM08-VectorEmbeddingWeaknesses": {
+        "count": 2,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "openpilot/tools/jotpluggler/thumbnail.cc",
+            "line": 46,
+            "cwe": "CWE-",
+            "snippet": "int chroma_x_shift = 0;"
+          },
+          {
+            "severity": "low",
+            "file": "openpilot/tools/cabana/ui/widgets/videowidget.cc",
+            "line": 72,
+            "cwe": "CWE-",
+            "snippet": "int chroma_x_shift = 0, chroma_y_shift = 0;"
+          }
+        ]
+      },
+      "LLM09-Misinformation": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM10-UnboundedConsumption": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "sbom": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.5",
+    "serialNumber": "urn:uuid:61b7a9b9-4eca-5c3e-9072-19b81808433c",
+    "version": 1,
+    "metadata": {
+      "timestamp": "2026-10-06T08:05:25Z",
+      "component": {
+        "type": "application",
+        "name": "OPENPILOT",
+        "version": "83b357604d34",
+        "bom-ref": "pkg:generic/anticloud/OPENPILOT@83b357604d34",
+        "purl": "pkg:generic/anticloud/OPENPILOT@83b357604d34",
+        "licenses": [
+          {
+            "license": {
+              "id": "MIT"
+            }
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "anticloud:source-commit",
+          "value": ""
+        },
+        {
+          "name": "anticloud:source-url",
+          "value": "https://github.com/"
+        },
+        {
+          "name": "anticloud:tier",
+          "value": "tier-agent"
+        }
+      ]
+    },
+    "components": [
+      {
+        "type": "library",
+        "name": "sounddevice",
+        "version": "unspecified",
+        "purl": "pkg:pypi/sounddevice",
+        "bom-ref": "pypi/sounddevice@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "requests",
+        "version": "unspecified",
+        "purl": "pkg:pypi/requests",
+        "bom-ref": "pypi/requests@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "tqdm",
+        "version": "unspecified",
+        "purl": "pkg:pypi/tqdm",
+        "bom-ref": "pypi/tqdm@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "scons",
+        "version": "unspecified",
+        "purl": "pkg:pypi/scons",
+        "bom-ref": "pypi/scons@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "pycapnp",
+        "version": "==2.1.0",
+        "purl": "pkg:pypi/pycapnp@2.1.0",
+        "bom-ref": "pypi/pycapnp@==2.1.0"
+      },
+      {
+        "type": "library",
+        "name": "numpy",
+        "version": ">=2.0",
+        "purl": "pkg:pypi/numpy@2.0",
+        "bom-ref": "pypi/numpy@>=2.0"
+      },
+      {
+        "type": "library",
+        "name": "comma-deps-capnproto",
+        "version": "unspecified",
+        "purl": "pkg:pypi/comma-deps-capnproto",
+        "bom-ref": "pypi/comma-deps-capnproto@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "comma-deps-acados",
+        "version": "unspecified",
+        "purl": "pkg:pypi/comma-deps-acados",
+        "bom-ref": "pypi/comma-deps-acados@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "comma-deps-ffmpeg",
+        "version": "unspecified",
+        "purl": "pkg:pypi/comma-deps-ffmpeg",
+        "bom-ref": "pypi/comma-deps-ffmpeg@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "comma-deps-zstd",
+        "version": "unspecified",
+        "purl": "pkg:pypi/comma-deps-zstd",
+        "bom-ref": "pypi/comma-deps-zstd@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "comma-deps-zeromq",
+        "version": "unspecified",
+        "purl": "pkg:pypi/comma-deps-zeromq",
+        "bom-ref": "pypi/comma-deps-zeromq@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "comma-deps-json11",
+        "version": "unspecified",
+        "purl": "pkg:pypi/comma-deps-json11",
+        "bom-ref": "pypi/comma-deps-json11@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "comma-deps-git-lfs",
+        "version": "unspecified",
+        "purl": "pkg:pypi/comma-deps-git-lfs",
+        "bom-ref": "pypi/comma-deps-git-lfs@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "comma-deps-gcc-arm-none-eabi",
+        "version": "unspecified",
+        "purl": "pkg:pypi/comma-deps-gcc-arm-none-eabi",
+        "bom-ref": "pypi/comma-deps-gcc-arm-none-eabi@unspecified"
+      }
+    ]
+  },
+  "elapsed_seconds": 15.63
+}

@@ -1,0 +1,137 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:61b7a9b9-4eca-5c3e-9072-19b81808433c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-06T08:05:25Z",
+    "component": {
+      "type": "application",
+      "name": "OPENPILOT",
+      "version": "83b357604d34",
+      "bom-ref": "pkg:generic/anticloud/OPENPILOT@83b357604d34",
+      "purl": "pkg:generic/anticloud/OPENPILOT@83b357604d34",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "anticloud:source-commit",
+        "value": ""
+      },
+      {
+        "name": "anticloud:source-url",
+        "value": "https://github.com/"
+      },
+      {
+        "name": "anticloud:tier",
+        "value": "tier-agent"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "sounddevice",
+      "version": "unspecified",
+      "purl": "pkg:pypi/sounddevice",
+      "bom-ref": "pypi/sounddevice@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "requests",
+      "version": "unspecified",
+      "purl": "pkg:pypi/requests",
+      "bom-ref": "pypi/requests@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "tqdm",
+      "version": "unspecified",
+      "purl": "pkg:pypi/tqdm",
+      "bom-ref": "pypi/tqdm@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "scons",
+      "version": "unspecified",
+      "purl": "pkg:pypi/scons",
+      "bom-ref": "pypi/scons@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "pycapnp",
+      "version": "==2.1.0",
+      "purl": "pkg:pypi/pycapnp@2.1.0",
+      "bom-ref": "pypi/pycapnp@==2.1.0"
+    },
+    {
+      "type": "library",
+      "name": "numpy",
+      "version": ">=2.0",
+      "purl": "pkg:pypi/numpy@2.0",
+      "bom-ref": "pypi/numpy@>=2.0"
+    },
+    {
+      "type": "library",
+      "name": "comma-deps-capnproto",
+      "version": "unspecified",
+      "purl": "pkg:pypi/comma-deps-capnproto",
+      "bom-ref": "pypi/comma-deps-capnproto@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "comma-deps-acados",
+      "version": "unspecified",
+      "purl": "pkg:pypi/comma-deps-acados",
+      "bom-ref": "pypi/comma-deps-acados@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "comma-deps-ffmpeg",
+      "version": "unspecified",
+      "purl": "pkg:pypi/comma-deps-ffmpeg",
+      "bom-ref": "pypi/comma-deps-ffmpeg@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "comma-deps-zstd",
+      "version": "unspecified",
+      "purl": "pkg:pypi/comma-deps-zstd",
+      "bom-ref": "pypi/comma-deps-zstd@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "comma-deps-zeromq",
+      "version": "unspecified",
+      "purl": "pkg:pypi/comma-deps-zeromq",
+      "bom-ref": "pypi/comma-deps-zeromq@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "comma-deps-json11",
+      "version": "unspecified",
+      "purl": "pkg:pypi/comma-deps-json11",
+      "bom-ref": "pypi/comma-deps-json11@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "comma-deps-git-lfs",
+      "version": "unspecified",
+      "purl": "pkg:pypi/comma-deps-git-lfs",
+      "bom-ref": "pypi/comma-deps-git-lfs@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "comma-deps-gcc-arm-none-eabi",
+      "version": "unspecified",
+      "purl": "pkg:pypi/comma-deps-gcc-arm-none-eabi",
+      "bom-ref": "pypi/comma-deps-gcc-arm-none-eabi@unspecified"
+    }
+  ]
+}
